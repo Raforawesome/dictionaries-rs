@@ -1,3 +1,27 @@
+// Create custom error type
+use std::fmt::{Debug, Display, Formatter};
+
+pub struct RemoveError {}
+
+impl Debug for RemoveError {
+	fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+		todo!()
+	}
+}
+impl Display for RemoveError {
+	fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+		todo!()
+	}
+}
+
+impl std::error::Error for RemoveError {}
+impl RemoveError {
+	fn new() -> Self {
+		Self {}
+	}
+}
+
+// Main dictionary code
 pub struct Dictionary {
 	pub keys: Vec<String>,
 	pub values: Vec<String>
@@ -38,13 +62,17 @@ impl Dictionary {
 			None
 		}
 	}
-	pub fn remove(&mut self, k: &str) -> Option<()> {
+	pub fn remove(&mut self, k: &str) -> Result<(), RemoveError> {
 		let keys: &mut Vec<String> = &mut self.keys;
 		let values: &mut Vec<String> = &mut self.values;
-		let i = keys.iter().position(|v| v == k)?;
-		keys.remove(i);
-		values.remove(i);
-		Some(())
+		let i = keys.iter().position(|v| v == k);
+		if let Some(n) = i {
+			keys.remove(n);
+			values.remove(n);
+			Ok(())
+		} else {
+			Err(RemoveError::new())
+		}
 	}
 }
 

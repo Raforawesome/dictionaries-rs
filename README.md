@@ -11,7 +11,7 @@ dictionaries = { git = "https://github.com/Raforawesome/dictionaries-rs" }
 
 #### Usage:
 ```rust
-use dictionaries::Dictionary;
+use dictionaries::{Dictionary, RemoveError};
 
 fn main() {
     let dict: Dictionary = Dictionary::new();
@@ -27,7 +27,7 @@ fn main() {
     let result: Option<&String> = dict.get_key(value: &str);
     
     // Removes a key-value pair when given a key
-    let result: Option<()> = dict.remove(key: &str);
+    let result: Result<(), RemoveError> = dict.remove(key: &str);
     
     
     // This library also exposes the key and value vectors
