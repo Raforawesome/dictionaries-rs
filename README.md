@@ -34,5 +34,10 @@ fn main() {
     // So you can write custom logic
     let keys: Vec<String> = dict.keys;
     let values: Vec<String> = dict.values;
+    
+    // Dictionaries can also be iterated through
+    for (k, v) in dict.iter() {
+        println!("{}, {}", k, v);
+    }
 }
 ```
