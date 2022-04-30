@@ -33,6 +33,6 @@ fn main() {
     // This library also exposes the key and value vectors
     // So you can write custom logic
     let keys: Vec<String> = dict.keys;
-	let values: Vec<String> = dict.values;
+    let values: Vec<String> = dict.values;
 }
 ```
