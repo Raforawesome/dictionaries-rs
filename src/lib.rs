@@ -18,6 +18,7 @@ impl RemoveError {
 }
 
 // Main dictionary code
+#[derive(Debug, Clone)]
 pub struct Dictionary {
 	pub keys: Vec<String>,
 	pub values: Vec<String>
