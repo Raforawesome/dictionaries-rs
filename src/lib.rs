@@ -1,13 +1,9 @@
 // Create custom error type
 use std::fmt::{Debug, Display, Formatter};
 
+#[derive(Debug)]
 pub struct RemoveError {}
 
-impl Debug for RemoveError {
-	fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-		todo!()
-	}
-}
 impl Display for RemoveError {
 	fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
 		todo!()
